@@ -25,7 +25,7 @@ import {
 import SEO from "../components/SEO";
 
 const services = [
-  // ... (tu gardes tous les services comme tu les as déjà)
+
 ];
 
 export default function NosServices() {
@@ -200,3 +200,4 @@ export default function NosServices() {
     </div>
   );
 }
+
