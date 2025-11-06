@@ -33,7 +33,6 @@ import {
   UsersIcon,
   Video // Added Video icon
 } from "lucide-react";
-import TimeSlotPicker from "../components/TimeSlotPicker"; // New import
 import { format, parseISO } from "date-fns"; // New import
 import { fr } from "date-fns/locale"; // New import
 import SEO, { getOrganizationSchema } from "../components/SEO";
@@ -634,3 +633,4 @@ export default function Contact() {
     </div>
   );
 }
+
