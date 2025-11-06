@@ -1,9 +1,8 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Target,
@@ -19,125 +18,17 @@ import {
   Users,
   Zap,
   Megaphone,
-  Globe,
   Mail,
   Search,
   Heart
 } from "lucide-react";
 import SEO from "../components/SEO";
-import { usePageTracking, useServiceTracking, useButtonTracking } from "../components/Analytics";
 
 const services = [
-  {
-    icon: Target,
-    title: "Stratégie Marketing",
-    subtitle: "Positionnement & Plan d'action",
-    description: "Définissez une stratégie marketing gagnante pour vous démarquer et conquérir votre marché.",
-    color: "from-blue-500 to-blue-600",
-    features: [
-      "Analyse concurrentielle approfondie",
-      "Définition du positionnement unique",
-      "Identification des segments cibles",
-      "Plan marketing opérationnel 12 mois",
-      "Budget et ROI prévisionnels",
-      "Tableaux de bord de suivi"
-    ],
-    benefits: "Gagnez en clarté. Concentrez vos efforts. Maximisez votre impact."
-  },
-  {
-    icon: Rocket,
-    title: "Transformation Digitale",
-    subtitle: "Site web, E-commerce & Automatisation",
-    description: "Digitalisez votre activité pour gagner en efficacité et toucher plus de clients.",
-    color: "from-purple-500 to-purple-600",
-    features: [
-      "Audit de maturité digitale",
-      "Stratégie de présence en ligne",
-      "Refonte ou création de site web",
-      "Solution e-commerce adaptée",
-      "Automatisation des processus",
-      "Formation des équipes"
-    ],
-    benefits: "Automatisez. Vendez en ligne. Accélérez votre croissance."
-  },
-  {
-    icon: Palette,
-    title: "Branding & Communication",
-    subtitle: "Identité visuelle & Storytelling",
-    description: "Créez une marque forte et cohérente qui résonne avec vos clients.",
-    color: "from-pink-500 to-pink-600",
-    features: [
-      "Création d'identité visuelle complète",
-      "Charte graphique et guidelines",
-      "Stratégie de communication",
-      "Création de contenus (textes, visuels)",
-      "Animation des réseaux sociaux",
-      "Campagnes publicitaires"
-    ],
-    benefits: "Démarquez-vous. Créez de l'émotion. Fidélisez vos clients."
-  },
-  {
-    icon: BarChart3,
-    title: "Études de Marché",
-    subtitle: "Data & Insights consommateurs",
-    description: "Prenez des décisions éclairées grâce à une connaissance approfondie de votre marché.",
-    color: "from-green-500 to-green-600",
-    features: [
-      "Études qualitatives (interviews, focus groups)",
-      "Études quantitatives (sondages, enquêtes)",
-      "Analyse de la concurrence",
-      "Segmentation client avancée",
-      "Tests de concept et produit",
-      "Rapports d'insights actionnables"
-    ],
-    benefits: "Comprenez vos clients. Anticipez les tendances. Innovez sereinement."
-  },
-  {
-    icon: Database,
-    title: "CRM & Gestion de Données",
-    subtitle: "Centralisation & Pilotage commercial",
-    description: "Optimisez votre relation client avec des outils performants et une data exploitable.",
-    color: "from-amber-500 to-amber-600",
-    features: [
-      "Choix et déploiement CRM adapté",
-      "Migration et nettoyage de données",
-      "Automatisation du marketing (email, SMS)",
-      "Parcours client personnalisés",
-      "Reporting et dashboards commerciaux",
-      "Formation utilisateurs"
-    ],
-    benefits: "Centralisez vos données. Personnalisez vos actions. Boostez vos ventes."
-  },
-  {
-    icon: GraduationCap,
-    title: "Formation & Coaching",
-    subtitle: "Montée en compétences de vos équipes",
-    description: "Formez vos collaborateurs aux meilleures pratiques marketing et commerciales.",
-    color: "from-indigo-500 to-indigo-600",
-    features: [
-      "Formations sur-mesure (marketing, vente, digital)",
-      "Coaching individuel dirigeants",
-      "Ateliers pratiques et opérationnels",
-      "Programmes de certification",
-      "Suivi post-formation et accompagnement",
-      "Supports et ressources en ligne"
-    ],
-    benefits: "Autonomisez vos équipes. Diffusez les bonnes pratiques. Pérennisez les résultats."
-  }
+  // ... (tu gardes tous les services comme tu les as déjà)
 ];
 
 export default function NosServices() {
-  usePageTracking('Nos Services');
-  const trackService = useServiceTracking();
-  const trackButton = useButtonTracking();
-
-  React.useEffect(() => {
-    // Track service page views for each visible service
-    services.forEach(service => {
-      trackService(service.title);
-    });
-  }, []); // Empty dependency array means this runs once on mount
-
   return (
     <div className="min-h-screen py-16">
       <SEO
@@ -206,10 +97,7 @@ export default function NosServices() {
                     <Button 
                       className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 shadow-lg`} 
                       size="lg"
-                      onClick={() => trackButton('En savoir plus - Service', { 
-                        service: service.title,
-                        location: 'services_grid' 
-                      })}
+                      onClick={() => {}}
                     >
                       En savoir plus
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -235,8 +123,7 @@ export default function NosServices() {
           </div>
 
           <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { icon: Search, title: "SEO & Référencement", desc: "Améliorez votre visibilité" },
+            {[{ icon: Search, title: "SEO & Référencement", desc: "Améliorez votre visibilité" },
               { icon: Megaphone, title: "Publicité en ligne", desc: "Google Ads, Facebook Ads" },
               { icon: Mail, title: "Email Marketing", desc: "Campagnes automatisées" },
               { icon: Heart, title: "Relation Client", desc: "Satisfaction & fidélisation" }
@@ -259,22 +146,9 @@ export default function NosServices() {
       <div className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-16 mb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            {[
-              {
-                icon: TrendingUp,
-                title: "Résultats mesurables",
-                description: "Des KPIs clairs. Un suivi rigoureux. Des résultats concrets."
-              },
-              {
-                icon: Zap,
-                title: "Réactivité",
-                description: "Réponse sous 24h. Déploiement rapide. Agilité maximale."
-              },
-              {
-                icon: Users,
-                title: "Accompagnement humain",
-                description: "Un interlocuteur dédié. Proximité. Disponibilité."
-              }
+            {[{ icon: TrendingUp, title: "Résultats mesurables", description: "Des KPIs clairs. Un suivi rigoureux. Des résultats concrets." },
+              { icon: Zap, title: "Réactivité", description: "Réponse sous 24h. Déploiement rapide. Agilité maximale." },
+              { icon: Users, title: "Accompagnement humain", description: "Un interlocuteur dédié. Proximité. Disponibilité." }
             ].map((item, index) => (
               <div key={index}>
                 <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/20">
@@ -303,7 +177,7 @@ export default function NosServices() {
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg w-full sm:w-auto"
-                  onClick={() => trackButton('Contactez-nous', { location: 'services_cta' })}
+                  onClick={() => {}}
                 >
                   Contactez-nous
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -314,7 +188,7 @@ export default function NosServices() {
                   size="lg" 
                   variant="outline" 
                   className="w-full sm:w-auto"
-                  onClick={() => trackButton('Notre méthode de travail', { location: 'services_cta' })}
+                  onClick={() => {}}
                 >
                   Notre méthode de travail
                 </Button>
